@@ -1,0 +1,1 @@
+//* An example for a renderer process script.

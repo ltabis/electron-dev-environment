@@ -11,7 +11,7 @@ on:
 
 jobs:
   test-and-build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # TODO: Need to make it run on OSX and windows.
     steps:
 
       # Imports the source code to the ubuntu virtual machine
