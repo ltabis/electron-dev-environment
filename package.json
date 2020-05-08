@@ -51,27 +51,20 @@
     }
   },
   "dependencies": {
-    "electron-compile": "^6.4.4",
     "electron-squirrel-startup": "^1.0.0"
   },
   "devDependencies": {
-    "@electron-forge/cli": "^6.0.0-beta.51",
-    "@electron-forge/maker-deb": "^6.0.0-beta.51",
-    "@electron-forge/maker-rpm": "^6.0.0-beta.51",
-    "@electron-forge/maker-squirrel": "^6.0.0-beta.51",
-    "@electron-forge/maker-zip": "^6.0.0-beta.51",
+    "@electron-forge/cli": "^6.0.0-beta.50",
+    "@electron-forge/maker-deb": "^6.0.0-beta.50",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.50",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.50",
+    "@electron-forge/maker-zip": "^6.0.0-beta.50",
     "@types/node": "^12.12.38",
     "@typescript-eslint/eslint-plugin": "^2.31.0",
     "@typescript-eslint/parser": "^2.31.0",
-    "babel-plugin-transform-async-to-generator": "^6.24.1",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
     "documentation": "^12.3.0",
     "electron": "^8.2.5",
-    "electron-forge": "^5.2.4",
-    "electron-prebuilt-compile": "8.2.0",
     "eslint": "^6.8.0",
-    "eslint-plugin-import": "^2",
     "jest": "^26.0.1",
     "spectron": "^10.0.1",
     "typescript": "^3.8.3"
