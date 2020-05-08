@@ -1,0 +1,52 @@
+name: CI
+
+# Launching the script on pushes or pull requests.
+on: 
+  push:
+    branches: 
+      - test
+  pull_request:
+    branches: 
+      - test
+
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+    steps:
+
+      # Imports the source code to the ubuntu virtual machine
+      - name: Getting the source code
+        uses: actions/checkout@v2
+        with:
+          ref: 'test'
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
+      - name: Install project dependencies
+        run: |
+          yarn install
+
+      - name: build javascript files
+        run: |
+          yarn build
+
+      - name: Run lint
+        run: |
+          yarn lint
+
+      - name: Setup chromedriver
+        uses: nanasess/setup-chromedriver@master
+
+      - name: Run yarn tests
+        run: |
+          export DISPLAY=:99
+          chromedriver --url-base=/wd/hub &
+          sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 &
+          yarn test
+  
+      - name: Build the app
+        run: |
+          yarn make
