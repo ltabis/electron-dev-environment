@@ -7,7 +7,7 @@ import { contextBridge, ipcRenderer } from "electron";
 //* Can be used to expose Node js features to the renderer process
 //* without exposing the entire library.
 contextBridge.exposeInMainWorld(
-    "process", {
+    "communication", {
         send: (channel: string, ...args: any) => {
 
             // whitelist channels
