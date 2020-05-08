@@ -1,0 +1,74 @@
+{
+  "name": "electron-dev-environnement",
+  "productName": "electron-dev-environnement",
+  "version": "1.0.0",
+  "description": "My Electron application description",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "yarn build && electron-forge start",
+    "build": "tsc",
+    "watch": "tsc -w",
+    "test": "jest --config jest.config.json --detectOpenHandles --runInBand",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "eslint . --ext .ts",
+    "doc": "documentation build dist/** -f html -o docs"
+  },
+  "keywords": [],
+  "author": "ltabis",
+  "license": "MIT",
+  "config": {
+    "forge": {
+      "make_targets": {
+        "win32": [
+          "squirrel"
+        ],
+        "darwin": [
+          "zip"
+        ],
+        "linux": [
+          "deb",
+          "rpm"
+        ]
+      },
+      "electronPackagerConfig": {
+        "packageManager": "yarn"
+      },
+      "electronWinstallerConfig": {
+        "name": "electron_dev_environnement"
+      },
+      "electronInstallerDebian": {},
+      "electronInstallerRedhat": {},
+      "github_repository": {
+        "owner": "",
+        "name": ""
+      },
+      "windowsStoreConfig": {
+        "packageName": "",
+        "name": "electrondevenvironnement"
+      }
+    }
+  },
+  "dependencies": {
+    "electron-compile": "^6.4.4",
+    "electron-squirrel-startup": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^12.12.38",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "documentation": "^12.3.0",
+    "electron-forge": "^5.2.4",
+    "electron-prebuilt-compile": "8.2.0",
+    "eslint": "^3",
+    "eslint-config-airbnb": "^15",
+    "eslint-plugin-import": "^2",
+    "eslint-plugin-jsx-a11y": "^5",
+    "eslint-plugin-react": "^7",
+    "jest": "^26.0.1",
+    "spectron": "^10.0.1",
+    "typescript": "^3.8.3"
+  }
+}
