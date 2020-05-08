@@ -1,0 +1,3 @@
+## Ignoring the compiled TS code.
+node_modules
+dist

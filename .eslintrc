@@ -1,9 +1,15 @@
 {
-  "extends": "eslint-config-airbnb",
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
   "rules": {
-    "import/extensions": 0,
-    "import/no-extraneous-dependencies": 0,
-    "import/no-unresolved": [2, { "ignore": ["electron"] }],
-    "linebreak-style": 0
+      "no-console": 2 // Won't run if there are consol logs.
   }
 }
