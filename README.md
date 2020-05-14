@@ -47,7 +47,7 @@ Wich means that no renderer process has access to node's API. You'll need to use
 
 // <span style="color:orange">Todo</span>: Add npm examples.
 
-```
+```shell
 git clone https://github.com/ltabis/electron-dev-environnement.git
 yarn install
 ```
@@ -55,23 +55,23 @@ yarn install
 Will clone the repo and install all dependencies.
 ___
 **In a terminal**:
-```
+```shell
 yarn watch
 ```
-This command will re-transpile all of your TypeScript into JS. They will all be transpiled into the *dist/* directory.
+This command will transpile all of your TypeScript into JS on file change. They will all be transpiled into the *dist/* directory.
 
 **In an other terminal**:
-```
+```shell
 yarn start
 ```
 or
-```
+```shell
 yarn startd
 ```
 ```yarn start``` will launch your app, ```yarn startd``` will open the dev tools along your app.
 ___
 
-In the terminal where you tiped ```yarn start``` or ```yarn startd```:
+In the terminal where you typed ```yarn start``` or ```yarn startd```:
 type ```rs``` every time you want to reload your app.
 
 ## Examples
@@ -84,14 +84,14 @@ Check out the preload, app and renderer files to see how they communicate.
 ### Change the preload script
 
 In the preload file, you have complete access to Node's and Electron's APIs.
-It is usefull when you want to use expose a little part of both API's to the renderer processes. Watch out, has it can lead to open vulnerabilities to XSS and RES attack.
+It is usefull when you want to use expose a little part of both API's to the renderer processes. Watch out, has it can lead to vulnerabilities and open your app to XSS and RES attacks.
 
 I recommend you to only expose the ```send()``` and ```on()``` methods of the ipcRenderer. You will then be abble to send data to the main process that has access to Electron's and Node's API to do the backend work.
 
 Of course, you need to check if the data passed in the channels are correct, because anyone can use them in the renderer process to send anything to the main process.
 
 **preload.ts**
-```
+```ts
 contextBridge.exposeInMainWorld(
     "communication", {
         send: (channel: string, ...args: any) => {
@@ -118,7 +118,7 @@ contextBridge.exposeInMainWorld(
 
 You can add valid channels to the validChannels arrays:
 
-```
+```ts
     send: (channel: string, ...args: any) => {
     
         // whitelist channels
@@ -156,6 +156,8 @@ See this [link](https://github.com/eslint/eslint#configuration) for examples.
 
 ### Github Action configuration
 
+The action will only be trigered when you push or accept a pull request on the 'test' branch.
+
 The action is separated in multiple steps:
 - Checkout the code to the VM.
 - Setup node using the [setup-node](https://github.com/marketplace/actions/setup-node-js-environment) action.
@@ -167,7 +169,7 @@ The action is separated in multiple steps:
 - Build you app. (Only on an ubuntu machine for now)
 
 You can add or remove any step you want.
-Whatch out for the chromedriver though, without it you cant launch your spectron tests has the VM isn't setup to support it. 
+Whatch out for the chromedriver though, without it you cant launch your spectron tests has the VM isn't setup to support spectron's environment by default.
 
 ## Notes
 
