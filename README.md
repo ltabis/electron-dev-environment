@@ -1,10 +1,16 @@
 # electron-dev-environnement
 
-Develop, test, and build you app with this development environment sample for Electron.
+:electron: Develop, test, and build your Electron apps with this development environment sample for Electron.
 
 ## Introduction
 
-This repository has been made following the fact that creating an Electron app with TypeScript was really difficult for me. Using github actions with spectron isn't specified anywhere, the Electron typescript template is out of date ... But I still managed to do it, so I'm sharing what I've learnt so far to help you built secured Electron based apps that have a healty code base and a great development environment !
+This repository has been created because I find that creating an Electron app with TypeScript that is secured and easly testable is really difficult.
+
+Using github actions with **Spectron** isn't specified anywhere, the Electron TypeScript template is out of date ...
+
+I still managed to create an environment to make Electron apps and test them with Github Actions, so I'm sharing what I've learnt so far to help you built secured Electron based apps that have a healty code base and a nice development environment !
+
+This repo **isn't build with any framework** except Electron, since everyone has their own preference on the matter. You can install Vue.js, React, Angular or other frameworks if you want, but I won't add any to this repository has it is not the goal of this project.
 
 In this app repository, you will find:
 
