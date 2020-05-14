@@ -33,7 +33,7 @@ To check your code base healthiness.
 
 To check you code and launch your tests on a pull request or push.
 
-> **documentation js**
+> **Documentation js**
 
 To provide documentation to your code base.
 
@@ -79,14 +79,14 @@ type ```rs``` every time you want to reload your app.
 ### Plug backend and frontend code
 
 Their is an example using the IPC in this repository.
-Check out the preload, app and renderer files to see how they communicate.
+Check out the **preload.ts**, **index.ts** and **renderer.ts** files to see how they communicate.
 
 ### Change the preload script
 
 In the preload file, you have complete access to Node's and Electron's APIs.
-It is usefull when you want to use expose a little part of both API's to the renderer processes. Watch out, has it can lead to vulnerabilities and open your app to XSS and RES attacks.
+It is usefull when you want to expose a little part of both APIs to the renderer processes. Watch out, has it can lead to create vulnerabilities in your app (XSS and RCE).
 
-I recommend you to only expose the ```send()``` and ```on()``` methods of the ipcRenderer. You will then be abble to send data to the main process that has access to Electron's and Node's API to do the backend work.
+I recommend you to only expose the ```send()``` and ```on()``` methods of the ipcRenderer. You will then be able to send data to the main process that has access to Electron's and Node's APIs to do the backend work.
 
 Of course, you need to check if the data passed in the channels are correct, because anyone can use them in the renderer process to send anything to the main process.
 
@@ -157,10 +157,10 @@ You can find it's API [here](https://github.com/electron-userland/spectron#appli
 
 **Jest** is also installed and work wonders with Spectron. You can use both those frameworks to test your code. Check its documentation [here](https://jestjs.io/docs/en/getting-started.html).
 
-All your tests files needs to be named like so : ```*.unit.[js | ts]``` and you need to put them under the tests/ folder.
+All your tests files needs to be named like so : ```*.unit.[js | ts]``` and you need to put them under the *tests/* folder.
 Has you can see, following the jest.config.json file, jest can handle both TS and JS test files.
 
-Of course you can edit the jest config file has you like.
+Of course, you can edit the jest config file has you like.
 
 See examples of how it works in the ```basic.unit.js``` file under the tests directory with the current configuration.
 
@@ -176,7 +176,7 @@ See this [link](https://github.com/eslint/eslint#configuration) for examples.
 
 ### Github Action configuration
 
-The action will only be trigered when you push or accept a pull request on the 'test' branch.
+The action will only be triggered when you push or accept a pull request on the 'test' branch.
 
 The action is separated in multiple steps:
 - Checkout the code to the VM.
@@ -188,8 +188,8 @@ The action is separated in multiple steps:
 - Run all your tests.
 - Build you app. (Only on an ubuntu machine for now)
 
-You can add or remove any step you want.
-Whatch out for the chromedriver though, without it you cant launch your spectron tests has the VM isn't setup to support spectron's environment by default.
+You can add or remove any steps you want.
+Whatch out for the chromedriver though, without it you can't launch your spectron tests has you need to setup a chromedriver to run spectron.
 
 ## Notes
 
@@ -198,3 +198,5 @@ Whatch out for the chromedriver though, without it you cant launch your spectron
 - The github actions pipeline is only testing the app on an ubuntu machine at the moment.
 
 - I am working on this project on my free time, so I may be slow to respond to issues and pull request. I'll do my best. 
+
+- TODO: a todo section.
