@@ -5,7 +5,8 @@
   "description": "Dev, test, and build you app with this development environnement sample for Electron.",
   "main": "dist/index.js",
   "scripts": {
-    "start": "tsc && electron-forge start",
+    "start": "electron-forge start",
+    "startd": "env ELECTRON_DEV_TOOLS=true electron-forge start",
     "build": "tsc",
     "watch": "tsc -w",
     "test": "jest --config jest.config.json --detectOpenHandles --runInBand",

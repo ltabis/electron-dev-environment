@@ -49,3 +49,6 @@ Wich means that no renderer process has access to node's API. You'll need to use
 > Github Action configuration
 
 ## Notes
+
+This app has only been tested on an ubuntu 19.04 and 20.04 LTS, I will notify you when it will be tested on all plateforms.
+The github actions pipeline is only testing the app on an ubuntu machine at the moment.
