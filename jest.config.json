@@ -1,0 +1,18 @@
+{
+    "verbose": true,
+    "testMatch": [
+      "**/tests/?(*.)+(unit).[jt]s?(x)"
+    ],
+    "testEnvironment": "node",
+    "displayName": {
+      "name": "Spectron tests",
+      "color": "blue"
+    },
+    "moduleFileExtensions": [
+      "ts", "js"
+    ],
+    "collectCoverageFrom": [
+      "**/src/**/*.ts"
+    ],
+    "preset": "ts-jest"
+}

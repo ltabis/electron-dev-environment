@@ -144,6 +144,26 @@ window.communication.send('new-valid-channel', data);
 ```
 Check the app code for further examples.
 
+### Testing
+
+Run your tests:
+```shell
+yarn test
+```
+
+To test your code, you can use **Spectron**, a test framework developed by the same team that made Electron. It is built on top of [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/) and [WebDriverIO](https://webdriver.io/) and can simulate user input on your app.
+
+You can find it's API [here](https://github.com/electron-userland/spectron#application-api).
+
+**Jest** is also installed and work wonders with Spectron. You can use both those frameworks to test your code. Check its documentation [here](https://jestjs.io/docs/en/getting-started.html).
+
+All your tests files needs to be named like so : ```*.unit.[js | ts]``` and you need to put them under the tests/ folder.
+Has you can see, following the jest.config.json file, jest can handle both TS and JS test files.
+
+Of course you can edit the jest config file has you like.
+
+See examples of how it works in the ```basic.unit.js``` file under the tests directory with the current configuration.
+
 ### Typescript configuration
 
 You can change your typescript configuration in the tsconfig.json file.
@@ -176,3 +196,5 @@ Whatch out for the chromedriver though, without it you cant launch your spectron
 - This app has only been tested on an **ubuntu 19.04** and **20.04 LTS**, it will be tested on OSX and Windows in the future.
 
 - The github actions pipeline is only testing the app on an ubuntu machine at the moment.
+
+- I am working on this project on my free time, so I may be slow to respond to issues and pull request. I'll do my best. 
