@@ -12,7 +12,7 @@ In this app repository, you will find:
 
 To create apps with web technologies.
 
-> **Typescript**
+> **TypeScript**
 
 This app is built using typescript, with it's excellent tooling.
 
@@ -24,6 +24,10 @@ Enables hot-reloading on your app.
 > **Jest & Spectron**
 
 To automate your tests and simulate user input.
+
+> **ESLint for TypeScript**
+
+To check your code base healthiness.
 
 > **Github Action**
 
@@ -72,12 +76,12 @@ type ```rs``` every time you want to reload your app.
 
 ## Examples
 
-> Plug backend and frontend code
+### Plug backend and frontend code
 
 Their is an example using the IPC in this repository.
 Check out the preload, app and renderer files to see how they communicate.
 
-> Change the preload script
+### Change the preload script
 
 In the preload file, you have complete access to Node's and Electron's APIs.
 It is usefull when you want to use expose a little part of both API's to the renderer processes. Watch out, has it can lead to open vulnerabilities to XSS and RES attack.
@@ -132,16 +136,41 @@ You can add valid channels to the validChannels arrays:
 
 The ```send()``` method will then be able to send data through the "new-valid-channel" and "another-valid-channel".
 
-To call them from the renderer processes, use:
+To call those methods from the renderer processes, use:
 
 ```
+// This will send 'data' over the 'new-valid-channel' to the main process.
 window.communication.send('new-valid-channel', data);
 ```
+Check the app code for further examples.
 
-> Typescript configuration
-> Github Action configuration
+### Typescript configuration
+
+You can change your typescript configuration in the tsconfig.json file.
+See this [link](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) for examples.
+
+### Lint configuration
+
+You can configure your own 'rules' to check your code base healthiness.
+See this [link](https://github.com/eslint/eslint#configuration) for examples.
+
+### Github Action configuration
+
+The action is separated in multiple steps:
+- Checkout the code to the VM.
+- Setup node using the [setup-node](https://github.com/marketplace/actions/setup-node-js-environment) action.
+- Install dependencies using yarn.
+- Transpiling TS files.
+- Using ESLint on your TS files.
+- Setup a chromedriver using the [setup-chromedriver](https://github.com/marketplace/actions/setup-chromedriver) action (to launch spectron)
+- Run all your tests.
+- Build you app. (Only on an ubuntu machine for now)
+
+You can add or remove any step you want.
+Whatch out for the chromedriver though, without it you cant launch your spectron tests has the VM isn't setup to support it. 
 
 ## Notes
 
-This app has only been tested on an **ubuntu 19.04** and **20.04 LTS**, I will notify you when it will be tested on all plateforms.
-The github actions pipeline is only testing the app on an ubuntu machine at the moment.
+- This app has only been tested on an **ubuntu 19.04** and **20.04 LTS**, it will be tested on OSX and Windows in the future.
+
+- The github actions pipeline is only testing the app on an ubuntu machine at the moment.
