@@ -26,7 +26,7 @@ const createWindow = () => {
   });
 
   // and load the index.html of the app.
-  mainWindow.loadURL(`file://${__dirname}/../src/index.html`);
+  mainWindow.loadURL(`file://${__dirname}/../src/front/views/index.html`);
 
     // Only show the window when all the content has been loaded.
     mainWindow.once('ready-to-show', () => {
