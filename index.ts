@@ -13,7 +13,7 @@ if (require('electron-squirrel-startup')) { // eslint-disable-line global-requir
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow: BrowserWindow;
 
-const createWindow = async () => {
+const createWindow = async (): Promise<void> => {
 
   // Create the browser window.
   mainWindow = new BrowserWindow({
