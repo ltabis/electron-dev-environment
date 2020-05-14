@@ -9,6 +9,8 @@ describe('Basic tests', () => {
 
     //* -- Setup
 
+    jest.setTimeout(10000);
+
     const app = new Application({
         path: electronPath,
         args: [path.join(__dirname, '..')],
