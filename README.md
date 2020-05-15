@@ -62,6 +62,7 @@ yarn install
 Will clone the repo and install all dependencies.
 ___
 **In a terminal**:
+
 ```shell
 yarn watch
 ```

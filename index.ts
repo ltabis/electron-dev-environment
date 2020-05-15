@@ -19,7 +19,7 @@ const createWindow = async (): Promise<void> => {
   mainWindow = new BrowserWindow({
     show: false,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
+      preload: path.join(__dirname, 'src/preload.js'),
       nodeIntegration: false,
       contextIsolation: true, // Protect against prototype pollution
       enableRemoteModule: false,
