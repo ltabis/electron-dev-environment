@@ -6,15 +6,15 @@
 
 ## Introduction
 
-This repository has been created because I find that creating an Electron app with TypeScript that is secured and easly testable is really difficult.
+I made this repository because I find that creating an Electron app with TypeScript that is secured and easly testable is difficult.
 
 Using github actions with **Spectron** isn't specified anywhere, the Electron TypeScript template is out of date ...
 
-I still managed to create an environment to make Electron apps and test them with Github Actions, so I'm sharing what I've learnt so far to help you built secured Electron based apps that have a healty code base and a nice development environment !
+I still managed to create an environment to make Electron apps and test them with Github Actions, so I'm sharing what I've learnt so far to help you build secured Electron based apps that have a healty code base and a nice development environment !
 
-This repo **isn't build with any framework** except Electron, since everyone has their own preference on the matter. You can install Vue.js, React, Angular or other frameworks if you want, but I won't add any to this repository has it is not the goal of this project.
+This repo **isn't using any framework** except Electron, since everyone has their own preference on the matter. You can install Vue.js, React, Angular or other frameworks if you want, but I won't add any to this repository has it is not the goal of this project.
 
-In this app repository, you will find:
+In this repository, you will find:
 
 > **Electron**
 
@@ -53,10 +53,9 @@ Wich means that no renderer process has access to node's API. You'll need to use
 
 ## Setup
 
-// <span style="color:orange">Todo</span>: Add npm examples.
-
 ```shell
 git clone https://github.com/ltabis/electron-dev-environnement.git
+cd electron-dev-environnement/
 yarn install
 ```
 
@@ -86,13 +85,15 @@ type ```rs``` every time you want to reload your app.
 
 ### Plug backend and frontend code
 
-Their is an example using the IPC in this repository.
+There is an example using the IPC in this repository.
 Check out the **preload.ts**, **index.ts** and **renderer.ts** files to see how they communicate.
+
+You can find more in [Electron's API](https://www.electronjs.org/docs/api/ipc-main).
 
 ### Change the preload script
 
 In the preload file, you have complete access to Node's and Electron's APIs.
-It is usefull when you want to expose a little part of both APIs to the renderer processes. Watch out, has it can lead to create vulnerabilities in your app (XSS and RCE).
+It is usefull when you want to expose a little part of both APIs to the renderer processes. Watch out, has it can lead to vulnerabilities in your app (XSS and RCE).
 
 I recommend you to only expose the ```send()``` and ```on()``` methods of the ipcRenderer. You will then be able to send data to the main process that has access to Electron's and Node's APIs to do the backend work.
 
@@ -192,12 +193,10 @@ The action is separated in multiple steps:
 - Install dependencies using yarn.
 - Transpiling TS files.
 - Using ESLint on your TS files.
-- Setup a chromedriver using the [setup-chromedriver](https://github.com/marketplace/actions/setup-chromedriver) action (to launch spectron)
-- Run all your tests.
+- Run all your tests using the [xvfb-action](https://github.com/marketplace/actions/gabrielbb-xvfb-action).
 - Build you app. (Only on an ubuntu machine for now)
 
 You can add or remove any steps you want.
-Whatch out for the chromedriver though, without it you can't launch your spectron tests has you need to setup a chromedriver to run spectron.
 
 ## Notes
 
