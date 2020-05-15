@@ -1,4 +1,4 @@
-name: CI
+name: Electron-CI
 
 # Launching the script on pushes or pull requests.
 on: 
@@ -10,7 +10,7 @@ on:
       - test
 
 jobs:
-  test-and-build:
+  test-and-build-app:
     runs-on: ubuntu-latest # TODO: Need to make it run on OSX and windows.
     steps:
 
@@ -45,6 +45,7 @@ jobs:
           export DISPLAY=:99
           chromedriver --url-base=/wd/hub &
           sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 &
+          sleep 1
           yarn test
   
       - name: Build the app
