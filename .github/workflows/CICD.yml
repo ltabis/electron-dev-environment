@@ -32,6 +32,7 @@ jobs:
       - name: Transpile javascript files
         run: |
           yarn build
+          export DISPLAY=:99
 
       - name: Run lint
         run: |
@@ -40,13 +41,21 @@ jobs:
       - name: Setup chromedriver
         uses: nanasess/setup-chromedriver@master
 
-      - name: Run yarn tests
-        run: |
-          export DISPLAY=:99
-          chromedriver --url-base=/wd/hub &
-          sleep 3
-          /etc/init.d/xvfb yarn test
-  
+      # - name: Run yarn tests
+      #   run: |
+      #     export DISPLAY=:99
+      #     chromedriver --url-base=/wd/hub &
+      #     sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 &
+      #     sleep 3
+      #     Xvfb yarn test
+
+      - name: Run tests
+        uses: GabrielBB/xvfb-action@v1.2
+        with:
+          run: |
+            yarn test
+
+
       - name: Build the app
         run: |
           yarn make
