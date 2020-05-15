@@ -8,8 +8,8 @@
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended"
-  ],
-  "rules": {
-      "no-console": 2 // Won't run if there are consol logs.
-  }
+  ]
+  // "rules": {
+  //     "no-console": 2 // Won't run if there are consol logs.
+  // }
 }
