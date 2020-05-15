@@ -1,5 +1,7 @@
 # electron-dev-environnement
 
+![Electron-CI](https://github.com/ltabis/electron-dev-environnement/workflows/Electron-CI/badge.svg)
+
 :electron: Develop, test, and build your Electron apps with this development environment sample for Electron.
 
 ## Introduction
