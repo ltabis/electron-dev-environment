@@ -1,4 +1,4 @@
-# electron-dev-environnement
+# electron-dev-environment
 
 ![Electron-CI Test branch](https://github.com/ltabis/electron-dev-environnement/workflows/Electron-CI/badge.svg?branch=test)
 
